@@ -9,4 +9,120 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
+
+    <style name="movieCover">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="layout_constraintHeight_default">percent</item>
+        <item name="layout_constraintHeight_percent">.4</item>
+        <item name="shapeAppearanceOverlay">@style/coverRoundedImageView</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="horizontalMovieCover">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="shapeAppearanceOverlay">@style/coverRoundedImageView</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="movieCategory">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/movie_category_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ic_movie_category_frame</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="movieDate">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/movie_date_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
+
+    <style name="ratingStar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">2dp</item>
+    </style>
+
+    <style name="movieTitle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/movie_title_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+    </style>
+
+    <style name="movieAgeRating">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/age_rating_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">42dp</item>
+        <item name="android:layout_marginEnd">@dimen/activity_movie_details_start_margin</item>
+        <item name="android:background">@drawable/ic_rating_frame</item>
+    </style>
+
+    <style name="movieDescription">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/movie_description_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_movie_details_start_margin</item>
+    </style>
+
+    <style name="horizontalMovieDescription">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/movie_description_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+        <item name="android:layout_marginEnd">@dimen/activity_movie_details_start_margin</item>
+    </style>
+
+    <style name="artistTitle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/artist_title_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">35dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+    </style>
+
+    <style name="artistPhoto">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">196dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_artists_margin</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="shapeAppearanceOverlay">@style/artistRoundedImageView</item>
+    </style>
+
+    <style name="artistName">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/artist_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
+    </style>
+
+    <style name="bottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+    </style>
 </resources>

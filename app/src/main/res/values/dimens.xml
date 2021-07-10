@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="activity_movie_details_start_margin">16dp</dimen>
+    <dimen name="activity_movie_details_artists_margin">10dp</dimen>
+    <dimen name="movie_title_size">20sp</dimen>
+    <dimen name="age_rating_size">14sp</dimen>
+    <dimen name="movie_category_size">10sp</dimen>
+    <dimen name="movie_date_size">12sp</dimen>
+    <dimen name="movie_description_size">14sp</dimen>
+    <dimen name="artist_title_size">16sp</dimen>
+    <dimen name="artist_size">12sp</dimen>
+    <dimen name="movie_card_margin_top">224dp</dimen>
+    <dimen name="movie_card_margin_bottom">46dp</dimen>
+    <dimen name="artists_scroll_margin_end">10dp</dimen>
+</resources>

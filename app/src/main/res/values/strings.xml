@@ -11,4 +11,6 @@
     <string name="artist_2_name">Холт Маккэллани</string>
     <string name="artist_3_name">Джош Харнетт</string>
     <string name="age_rating">18+</string>
+    <string name="home">home</string>
+    <string name="profile">profile</string>
 </resources>
