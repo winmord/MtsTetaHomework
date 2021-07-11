@@ -1,14 +1,52 @@
 <resources>
-    <dimen name="activity_movie_details_start_margin">16dp</dimen>
-    <dimen name="activity_movie_details_artists_margin">10dp</dimen>
+    <dimen name="activity_movie_details_margin_start">16dp</dimen>
+
     <dimen name="movie_title_size">20sp</dimen>
+    <dimen name="movie_title_margin_top">16dp</dimen>
+    <dimen name="movie_title_margin_start">16dp</dimen>
+
     <dimen name="age_rating_size">14sp</dimen>
+    <dimen name="age_rating_margin_top">42dp</dimen>
+    <dimen name="age_rating_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+
     <dimen name="movie_category_size">10sp</dimen>
+    <dimen name="movie_category_margin_top">32dp</dimen>
+
     <dimen name="movie_date_size">12sp</dimen>
+    <dimen name="movie_date_margin_top">32dp</dimen>
+    <dimen name="movie_date_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+
     <dimen name="movie_description_size">14sp</dimen>
+    <dimen name="movie_description_margin_top">16dp</dimen>
+    <dimen name="movie_description_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+    <dimen name="movie_description_margin_end">16dp</dimen>
+
     <dimen name="artist_title_size">16sp</dimen>
-    <dimen name="artist_size">12sp</dimen>
-    <dimen name="movie_card_margin_top">224dp</dimen>
-    <dimen name="movie_card_margin_bottom">46dp</dimen>
+    <dimen name="artist_title_margin_top">35sp</dimen>
+    <dimen name="artist_title_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+
+    <dimen name="artist_name_size">12sp</dimen>
+    <dimen name="artist_name_margin_top">12sp</dimen>
+    <dimen name="artist_name_margin_start">12sp</dimen>
+
+    <dimen name="movie_info_card_margin_top">224dp</dimen>
+    <dimen name="movie_info_card_padding_bottom">46dp</dimen>
+    <dimen name="movie_info_card_corner">20dp</dimen>
+
     <dimen name="artists_scroll_margin_end">10dp</dimen>
+
+    <dimen name="cover_corner">20dp</dimen>
+
+    <dimen name="artist_image_width">150dp</dimen>
+    <dimen name="artist_image_height">196dp</dimen>
+    <dimen name="artist_image_corner">10dp</dimen>
+    <dimen name="artist_image_margin_top">16dp</dimen>
+    <dimen name="artist_image_margin_start">10dp</dimen>
+    <dimen name="first_artist_image_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+
+    <dimen name="rating_star_margin_top">8dp</dimen>
+    <dimen name="rating_star_margin_start">2dp</dimen>
+    <dimen name="first_rating_star_margin_start">@dimen/activity_movie_details_margin_start</dimen>
+
+    <dimen name="bottom_navigation_view_height">48dp</dimen>
 </resources>
