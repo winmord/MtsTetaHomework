@@ -16,7 +16,7 @@
         <item name="shapeAppearanceOverlay">@style/coverRoundedImageView</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:adjustViewBounds">true</item>
-        <item name="android:background">@drawable/movie_info_card_background</item>
+        <item name="android:background">@drawable/shape_movie_info_card_background</item>
     </style>
 
     <style name="horizontalMovieCover">
@@ -24,7 +24,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="shapeAppearanceOverlay">@style/coverRoundedImageView</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="android:background">@drawable/movie_info_card_background</item>
+        <item name="android:background">@drawable/shape_movie_info_card_background</item>
     </style>
 
     <style name="movieInfoCardScroll">
@@ -43,14 +43,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/movie_info_card_margin_top</item>
-        <item name="android:background">@drawable/movie_info_card_background</item>
+        <item name="android:background">@drawable/shape_movie_info_card_background</item>
         <item name="android:paddingBottom">@dimen/movie_info_card_padding_bottom</item>
     </style>
 
     <style name="horizontalMovieInfoCard">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/movie_info_card_background</item>
+        <item name="android:background">@drawable/shape_movie_info_card_background</item>
         <item name="android:paddingBottom">@dimen/movie_info_card_padding_bottom</item>
     </style>
 
@@ -170,9 +170,20 @@
         <item name="android:layout_marginStart">@dimen/artist_name_margin_start</item>
     </style>
 
-    <style name="bottomNavigationView">
-        <item name="android:layout_width">match_parent</item>
+    <style name="bottomNavigationButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">.5</item>
         <item name="android:layout_height">@dimen/bottom_navigation_view_height</item>
-        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="android:background">@color/bottom_navigation_view</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="activeIndicator">
+        <item name="android:layout_width">0dp</item>
+        <item name="layout_constraintWidth_default">percent</item>
+        <item name="layout_constraintWidth_percent">.5</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 </resources>

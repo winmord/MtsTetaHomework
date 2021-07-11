@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/navView"
+        app:layout_constraintBottom_toTopOf="@id/homeButton"
         style="@style/movieInfoCardScroll">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -167,11 +167,27 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navView"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/homeButton"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_home"
+        android:contentDescription="@string/home_button"
+        style="@style/bottomNavigationButton"/>
+
+    <ImageView
+        android:id="@+id/profileButton"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        style="@style/bottomNavigationView"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_profile"
+        android:contentDescription="@string/profile_button"
+        style="@style/bottomNavigationButton"/>
+
+    <ImageView
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_active_indicator"
+        android:contentDescription="@string/active_indicator"
+        style="@style/activeIndicator"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
