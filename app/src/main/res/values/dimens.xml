@@ -66,6 +66,8 @@
 
     <dimen name="item_movie_width">150dp</dimen>
     <dimen name="item_movie_height">365dp</dimen>
+    <dimen name="item_movie_end_margin">20dp</dimen>
+    <dimen name="item_movie_bottom_margin">50dp</dimen>
 
     <dimen name="item_movie_cover_height">216dp</dimen>
 
@@ -88,4 +90,10 @@
     <dimen name="item_movie_age_restriction_text_size">7sp</dimen>
     <dimen name="item_movie_age_restriction_end_margin">2dp</dimen>
     <dimen name="item_movie_age_restriction_bottom_margin">2dp</dimen>
+
+    <dimen name="item_movie_category_end_margin">6dp</dimen>
+    <dimen name="item_movie_category_start_padding">9dp</dimen>
+    <dimen name="item_movie_category_end_padding">9dp</dimen>
+    <dimen name="item_movie_category_top_padding">4dp</dimen>
+    <dimen name="item_movie_category_bottom_padding">3dp</dimen>
 </resources>

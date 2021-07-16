@@ -5,11 +5,11 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
-    <style name="RoundedImageView.Artist">
+    <style name="RoundedImageView.Corner10">
         <item name="cornerSize">@dimen/artist_image_corner_radius</item>
     </style>
 
-    <style name="RoundedImageView.Cover">
+    <style name="RoundedImageView.Corner20">
         <item name="cornerSize">@dimen/cover_corner_radius</item>
     </style>
 
@@ -20,10 +20,10 @@
 
     <style name="BaseText.MovieCategory">
         <item name="android:textSize">@dimen/movie_category_text_size</item>
-        <item name="paddingStart">9dp</item>
-        <item name="paddingEnd">9dp</item>
-        <item name="android:paddingTop">4dp</item>
-        <item name="android:paddingBottom">3dp</item>
+        <item name="android:paddingStart">@dimen/item_movie_category_start_padding</item>
+        <item name="android:paddingEnd">@dimen/item_movie_category_end_padding</item>
+        <item name="android:paddingTop">@dimen/item_movie_category_top_padding</item>
+        <item name="android:paddingBottom">@dimen/item_movie_category_bottom_padding</item>
         <item name="android:background">@drawable/ic_movie_category_frame</item>
         <item name="android:gravity">center</item>
     </style>
@@ -78,9 +78,13 @@
     </style>
 
     <style name="BaseRoundedImage">
-        <item name="shapeAppearanceOverlay">@style/RoundedImageView.Cover</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedImageView.Corner20</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="BaseRoundedImage.ItemMovieCover">
+        <item name="shapeAppearanceOverlay">@style/RoundedImageView.Corner10</item>
     </style>
 
     <style name="MovieInfoCard">
