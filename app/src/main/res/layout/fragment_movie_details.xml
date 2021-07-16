@@ -101,7 +101,7 @@
                 app:srcCompat="@drawable/ic_star_black" />
 
             <ImageView
-                android:id="@+id/smovieStar3ImageView"
+                android:id="@+id/movieStar3ImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/rating_star_start_margin"
@@ -118,7 +118,7 @@
                 android:layout_marginStart="@dimen/rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
-                app:layout_constraintLeft_toRightOf="@id/smovieStar3ImageView"
+                app:layout_constraintLeft_toRightOf="@id/movieStar3ImageView"
                 app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
                 app:srcCompat="@drawable/ic_star_black" />
 

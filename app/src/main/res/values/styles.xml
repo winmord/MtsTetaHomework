@@ -20,6 +20,10 @@
 
     <style name="BaseText.MovieCategory">
         <item name="android:textSize">@dimen/movie_category_text_size</item>
+        <item name="paddingStart">9dp</item>
+        <item name="paddingEnd">9dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">3dp</item>
         <item name="android:background">@drawable/ic_movie_category_frame</item>
         <item name="android:gravity">center</item>
     </style>
@@ -56,6 +60,21 @@
     <style name="BaseText.PopularNow">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/popular_now_text_size</item>
+    </style>
+
+    <style name="BaseText.ItemMovieTitle">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/item_movie_title_text_size</item>
+    </style>
+
+    <style name="BaseText.ItemMovieDescription">
+        <item name="android:textSize">@dimen/item_movie_description_text_size</item>
+    </style>
+
+    <style name="BaseText.ItemMovieMovieAgeRestriction">
+        <item name="android:textSize">@dimen/item_movie_age_restriction_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/ic_rating_frame</item>
     </style>
 
     <style name="BaseRoundedImage">

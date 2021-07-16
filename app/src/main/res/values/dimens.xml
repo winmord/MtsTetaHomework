@@ -63,4 +63,29 @@
 
     <dimen name="movies_recycler_view_top_margin">15dp</dimen>
     <dimen name="movies_recycler_view_start_margin">20dp</dimen>
+
+    <dimen name="item_movie_width">150dp</dimen>
+    <dimen name="item_movie_height">365dp</dimen>
+
+    <dimen name="item_movie_cover_height">216dp</dimen>
+
+    <dimen name="item_movie_title_text_size">14sp</dimen>
+    <dimen name="item_movie_title_top_margin">8dp</dimen>
+    <dimen name="item_movie_title_start_margin">3dp</dimen>
+
+    <dimen name="item_movie_description_text_size">12sp</dimen>
+    <dimen name="item_movie_description_top_margin">10dp</dimen>
+    <dimen name="item_movie_description_start_margin">3dp</dimen>
+
+    <dimen name="item_movie_star_width">14dp</dimen>
+    <dimen name="item_movie_star_height">14dp</dimen>
+    <dimen name="item_movie_first_star_start_margin">3dp</dimen>
+    <dimen name="item_movie_star_start_margin">2dp</dimen>
+    <dimen name="item_movie_star_bottom_margin">5dp</dimen>
+
+    <dimen name="item_movie_age_restriction_width">20dp</dimen>
+    <dimen name="item_movie_age_restriction_height">20dp</dimen>
+    <dimen name="item_movie_age_restriction_text_size">7sp</dimen>
+    <dimen name="item_movie_age_restriction_end_margin">2dp</dimen>
+    <dimen name="item_movie_age_restriction_bottom_margin">2dp</dimen>
 </resources>
