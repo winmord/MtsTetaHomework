@@ -50,4 +50,17 @@
     <dimen name="first_rating_star_start_margin">@dimen/activity_movie_details_start_margin</dimen>
 
     <dimen name="bottom_navigation_view_height">48dp</dimen>
+
+    <dimen name="search_button_top_margin">30dp</dimen>
+    <dimen name="search_button_end_margin">20dp</dimen>
+
+    <dimen name="popular_now_text_size">16sp</dimen>
+    <dimen name="popular_now_top_margin">22dp</dimen>
+    <dimen name="popular_now_start_margin">20dp</dimen>
+
+    <dimen name="categories_recycler_view_top_margin">12dp</dimen>
+    <dimen name="categories_recycler_view_start_margin">20dp</dimen>
+
+    <dimen name="movies_recycler_view_top_margin">15dp</dimen>
+    <dimen name="movies_recycler_view_start_margin">20dp</dimen>
 </resources>

@@ -53,6 +53,11 @@
         <item name="android:textSize">@dimen/artist_name_text_size</item>
     </style>
 
+    <style name="BaseText.PopularNow">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/popular_now_text_size</item>
+    </style>
+
     <style name="BaseRoundedImage">
         <item name="shapeAppearanceOverlay">@style/RoundedImageView.Cover</item>
         <item name="android:scaleType">centerCrop</item>

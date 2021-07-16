@@ -16,4 +16,6 @@
     <string name="active_indicator">active indicator</string>
     <string name="profile_button">profile_button</string>
     <string name="home_button">home_button</string>
+    <string name="search_button">search button</string>
+    <string name="popular_now">Популярное сейчас</string>
 </resources>
