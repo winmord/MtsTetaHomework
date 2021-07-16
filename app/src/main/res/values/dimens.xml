@@ -7,10 +7,11 @@
 
     <dimen name="age_rating_text_size">14sp</dimen>
     <dimen name="age_rating_top_margin">42dp</dimen>
-    <dimen name="age_rating_start_margin">@dimen/activity_movie_details_start_margin</dimen>
+    <dimen name="age_rating_end_margin">@dimen/activity_movie_details_start_margin</dimen>
 
     <dimen name="movie_category_text_size">10sp</dimen>
     <dimen name="movie_category_top_margin">32dp</dimen>
+    <dimen name="movie_category_start_margin">@dimen/activity_movie_details_start_margin</dimen>
 
     <dimen name="movie_date_text_size">12sp</dimen>
     <dimen name="movie_date_top_margin">32dp</dimen>

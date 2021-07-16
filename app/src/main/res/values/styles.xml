@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="RoundedImageView">
         <item name="cornerFamily">rounded</item>
     </style>
@@ -12,144 +13,59 @@
         <item name="cornerSize">@dimen/cover_corner_radius</item>
     </style>
 
-    <style name="TextView">
+    <style name="BaseText">
         <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="TextView.MovieCategory">
+    <style name="BaseText.MovieCategory">
         <item name="android:textSize">@dimen/movie_category_text_size</item>
         <item name="android:background">@drawable/ic_movie_category_frame</item>
-        <item name="android:layout_marginTop">@dimen/movie_category_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/activity_movie_details_start_margin</item>
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="TextView.MovieDate">
+    <style name="BaseText.MovieDate">
         <item name="android:textSize">@dimen/movie_date_text_size</item>
-        <item name="android:layout_marginTop">@dimen/movie_date_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/movie_date_start_margin</item>
     </style>
 
-    <style name="TextView.MovieTitle">
+    <style name="BaseText.MovieTitle">
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">@dimen/movie_title_text_size</item>
-        <item name="android:layout_marginTop">@dimen/movie_title_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/movie_date_start_margin</item>
     </style>
 
-    <style name="TextView.MovieAgeRating">
+    <style name="BaseText.MovieAgeRestriction">
         <item name="android:textSize">@dimen/age_rating_text_size</item>
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginTop">@dimen/age_rating_top_margin</item>
-        <item name="android:layout_marginEnd">@dimen/age_rating_start_margin</item>
         <item name="android:background">@drawable/ic_rating_frame</item>
     </style>
 
-    <style name="TextView.MovieDescription">
+    <style name="BaseText.MovieDescription">
         <item name="android:textSize">@dimen/movie_description_text_size</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/movie_description_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/movie_description_start_margin</item>
-        <item name="android:layout_marginEnd">@dimen/movie_description_end_margin</item>
     </style>
 
-    <style name="TextView.ArtistsTitle">
+    <style name="BaseText.ArtistsTitle">
         <item name="android:fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">@dimen/artist_title_text_size</item>
-        <item name="android:layout_marginTop">@dimen/artist_title_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/artist_title_start_margin</item>
     </style>
 
-    <style name="TextView.ArtistName">
+    <style name="BaseText.ArtistName">
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textSize">@dimen/artist_name_text_size</item>
-        <item name="android:layout_marginTop">@dimen/artist_name_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/artist_name_start_margin</item>
     </style>
 
-    <style name="ShapeableImageView">
+    <style name="BaseRoundedImage">
         <item name="shapeAppearanceOverlay">@style/RoundedImageView.Cover</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
 
-    <style name="ShapeableImageView.MovieCover">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="ShapeableImageView.MovieCover.Horizontal">
-        <item name="android:layout_height">match_parent</item>
-    </style>
-
-    <style name="ShapeableImageView.ArtistImage">
-        <item name="android:layout_width">@dimen/artist_image_width</item>
-        <item name="android:layout_height">@dimen/artist_image_height</item>
-        <item name="android:layout_marginTop">@dimen/artist_image_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/artist_image_start_margin</item>
-    </style>
-
-    <style name="ShapeableImageView.ArtistImage.First">
-        <item name="android:layout_marginStart">@dimen/first_artist_image_start_margin</item>
-    </style>
-
-    <style name="ScrollView">
-        <item name="android:layout_height">0dp</item>
-    </style>
-
-    <style name="ScrollView.MovieInfoCardScroll">
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="ScrollView.MovieInfoCardScroll.Horizontal">
-        <item name="android:layout_width">0dp</item>
-        <item name="layout_constraintWidth_default">percent</item>
-        <item name="layout_constraintWidth_percent">.6</item>
-    </style>
-
-    <style name="ScrollView.ArtistsScroll">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginEnd">@dimen/artists_scroll_end_margin</item>
-    </style>
-
     <style name="MovieInfoCard">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/shape_movie_info_card_background</item>
         <item name="android:paddingBottom">@dimen/movie_info_card_bottom_padding</item>
     </style>
 
-    <style name="MovieInfoCard.Vertical">
-        <item name="android:layout_marginTop">@dimen/movie_info_card_top_margin</item>
-    </style>
-
-    <style name="RatingStar">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/rating_star_top_margin</item>
-        <item name="android:layout_marginStart">@dimen/rating_star_start_margin</item>
-    </style>
-
-    <style name="RatingStar.First">
-        <item name="android:layout_marginStart">@dimen/first_rating_star_start_margin</item>
-    </style>
-
     <style name="BottomNavigationButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="layout_constraintWidth_default">percent</item>
-        <item name="layout_constraintWidth_percent">.5</item>
-        <item name="android:layout_height">@dimen/bottom_navigation_view_height</item>
         <item name="android:background">@color/bottom_navigation_view</item>
         <item name="android:scaleType">center</item>
-    </style>
-
-    <style name="ActiveIndicator">
-        <item name="android:layout_width">0dp</item>
-        <item name="layout_constraintWidth_default">percent</item>
-        <item name="layout_constraintWidth_percent">.5</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:scaleType">fitXY</item>
     </style>
 </resources>
