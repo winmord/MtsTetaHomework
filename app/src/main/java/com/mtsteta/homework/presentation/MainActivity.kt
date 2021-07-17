@@ -3,10 +3,13 @@ package com.mtsteta.homework.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mtsteta.homework.R
+import com.mtsteta.homework.data.dto.CategoryDto
+import com.mtsteta.homework.data.dto.MovieDto
 import com.mtsteta.homework.data.features.categories.CategoriesDataSourceImpl
 import com.mtsteta.homework.data.features.movies.MoviesDataSourceImpl
 import com.mtsteta.homework.presentation.models.CategoriesModel
@@ -15,12 +18,19 @@ import com.mtsteta.homework.presentation.recyclerviews.adapters.CategoriesRecycl
 import com.mtsteta.homework.presentation.recyclerviews.adapters.MoviesRecyclerAdapter
 import com.mtsteta.homework.presentation.recyclerviews.decorations.BottomSpaceItemDecoration
 import com.mtsteta.homework.presentation.recyclerviews.decorations.RightSpaceItemDecoration
+import com.mtsteta.homework.presentation.recyclerviews.diffutils.callbacks.CategoriesCallback
+import com.mtsteta.homework.presentation.recyclerviews.diffutils.callbacks.MoviesCallback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var moviesModel: MoviesModel
     private lateinit var categoriesModel: CategoriesModel
     private lateinit var categoriesRecyclerView: RecyclerView
     private lateinit var moviesRecyclerView: RecyclerView
+    private lateinit var categoriesAdapter: CategoriesRecyclerAdapter
+    private lateinit var moviesAdapter: MoviesRecyclerAdapter
+    private var categories = listOf<CategoryDto>()
+    private var movies = listOf<MovieDto>()
+
     private val activityCallbackFunction: (String) -> Unit = { showToast(it) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
+        updateData()
     }
 
     private fun initDataSource() {
@@ -66,13 +77,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAdapters() {
-        val categoriesAdapter = CategoriesRecyclerAdapter(activityCallbackFunction)
-        categoriesAdapter.setData(categoriesModel.getCategories())
+        categoriesAdapter = CategoriesRecyclerAdapter(activityCallbackFunction)
         categoriesRecyclerView.adapter = categoriesAdapter
-
-        val moviesAdapter = MoviesRecyclerAdapter(activityCallbackFunction)
-        moviesAdapter.setData(moviesModel.getMovies())
+        moviesAdapter = MoviesRecyclerAdapter(activityCallbackFunction)
         moviesRecyclerView.adapter = moviesAdapter
+    }
+
+    private fun updateData() {
+        val categoriesCallback = CategoriesCallback(categories, categoriesModel.getCategories())
+        val categoriesDiff = DiffUtil.calculateDiff(categoriesCallback)
+        categoriesDiff.dispatchUpdatesTo(categoriesAdapter)
+        val categories = categoriesModel.getCategories()
+        categoriesAdapter.categories = categories
+
+        val moviesCallback = MoviesCallback(movies, moviesModel.getMovies())
+        val moviesDiff = DiffUtil.calculateDiff(moviesCallback)
+        moviesDiff.dispatchUpdatesTo(moviesAdapter)
+        movies = moviesModel.getMovies()
+        moviesAdapter.movies = movies
     }
 
     private fun getGridColumnsCount(itemWidth: Int): Int {

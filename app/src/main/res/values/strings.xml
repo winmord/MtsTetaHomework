@@ -21,4 +21,6 @@
     <string name="popular_now">Популярное сейчас</string>
     <string name="main_empty_message">empty</string>
     <string name="age_restriction">%1$s+</string>
+    <string name="empty_movies_list">Сейчас здесь нет
+фильмов, но мы уже отправили режиссёра снимать фильм для вас</string>
 </resources>

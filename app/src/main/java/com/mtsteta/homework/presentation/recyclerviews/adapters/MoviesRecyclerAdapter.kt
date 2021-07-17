@@ -5,31 +5,55 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.MovieDto
+import com.mtsteta.homework.presentation.recyclerviews.viewholders.EmptyMoviesListViewHolder
 import com.mtsteta.homework.presentation.recyclerviews.viewholders.MoviesViewHolder
 
 class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Unit) :
-    RecyclerView.Adapter<MoviesViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private lateinit var movies: List<MovieDto>
+    lateinit var movies: List<MovieDto>
 
-    fun setData(moviesList: List<MovieDto>) {
-        movies = moviesList
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            TYPE_EMPTY -> EmptyMoviesListViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_empty_movies_list, parent, false)
+            )
+            TYPE_MOVIE -> MoviesViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_movie, parent, false)
+            )
+            else -> throw IllegalStateException()
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_movie, parent, false)
-        return MoviesViewHolder(itemView)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is MoviesViewHolder -> {
+                holder.bind(movies[position])
+                holder.itemView.setOnClickListener { callbackFunction(movies[position].title) }
+            }
+            is EmptyMoviesListViewHolder -> {
+                holder.bind()
+            }
+        }
+
     }
 
-    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        holder.bind(movies[position])
-        holder.itemView.setOnClickListener { callbackFunction(movies[position].title) }
+    override fun getItemViewType(position: Int): Int {
+        return when (movies.isEmpty()) {
+            true -> TYPE_EMPTY
+            else -> TYPE_MOVIE
+        }
     }
 
     override fun getItemCount(): Int {
-        return movies.size
+        return when(movies.isEmpty()) {
+            true -> 1
+            else -> movies.size
+        }
     }
 }
+
+const val TYPE_EMPTY = 0
+const val TYPE_MOVIE = 1

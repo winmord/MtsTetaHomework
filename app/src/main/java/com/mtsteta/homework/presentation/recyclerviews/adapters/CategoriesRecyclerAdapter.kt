@@ -9,12 +9,7 @@ import com.mtsteta.homework.presentation.recyclerviews.viewholders.CategoriesVie
 
 class CategoriesRecyclerAdapter(private val callbackFunction: (title: String) -> Unit) :
     RecyclerView.Adapter<CategoriesViewHolder>() {
-    private lateinit var categories: List<CategoryDto>
-
-    fun setData(categoriesList: List<CategoryDto>) {
-        categories = categoriesList
-        notifyDataSetChanged()
-    }
+    lateinit var categories: List<CategoryDto>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val itemView =
