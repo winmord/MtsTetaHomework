@@ -5,40 +5,40 @@ import com.mtsteta.homework.data.dto.CategoryDto
 class CategoriesDataSourceImpl: CategoriesDataSource {
     override fun getCategories() = listOf(
         CategoryDto(
-            category = "боевики"
+            name = "боевики"
         ),
         CategoryDto(
-            category = "драмы"
+            name = "драмы"
         ),
         CategoryDto(
-            category = "комедии"
+            name = "комедии"
         ),
         CategoryDto(
-            category = "артхаус"
+            name = "артхаус"
         ),
         CategoryDto(
-            category = "мелодрамы"
+            name = "мелодрамы"
         ),
         CategoryDto(
-            category = "вестерны"
+            name = "вестерны"
         ),
         CategoryDto(
-            category = "военные"
+            name = "военные"
         ),
         CategoryDto(
-            category = "детективы"
+            name = "детективы"
         ),
         CategoryDto(
-            category = "истории"
+            name = "истории"
         ),
         CategoryDto(
-            category = "криминал"
+            name = "криминал"
         ),
         CategoryDto(
-            category = "мультфильмы"
+            name = "мультфильмы"
         ),
         CategoryDto(
-            category = "ужасы"
+            name = "ужасы"
         )
     )
 }

@@ -20,4 +20,5 @@
     <string name="search_button">search button</string>
     <string name="popular_now">Популярное сейчас</string>
     <string name="main_empty_message">empty</string>
+    <string name="age_restriction">%1$s+</string>
 </resources>
