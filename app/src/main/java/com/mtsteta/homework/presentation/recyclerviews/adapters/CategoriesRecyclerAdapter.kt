@@ -1,6 +1,7 @@
 package com.mtsteta.homework.presentation.recyclerviews.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mtsteta.homework.R
@@ -15,12 +16,11 @@ class CategoriesRecyclerAdapter(private val callbackFunction: (title: String) ->
         val itemView =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_movie_category, parent, false)
-        return CategoriesViewHolder(itemView)
+        return CategoriesViewHolder(itemView, callbackFunction)
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         holder.bind(categories[position])
-        holder.itemView.setOnClickListener { callbackFunction(categories[position].name) }
     }
 
     override fun getItemCount(): Int {

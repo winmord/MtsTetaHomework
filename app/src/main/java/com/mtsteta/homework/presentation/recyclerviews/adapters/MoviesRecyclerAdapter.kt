@@ -21,7 +21,7 @@ class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Uni
             )
             TYPE_MOVIE -> MoviesViewHolder(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_movie, parent, false)
+                    .inflate(R.layout.item_movie, parent, false), callbackFunction
             )
             else -> throw IllegalStateException()
         }
@@ -48,7 +48,7 @@ class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Uni
     }
 
     override fun getItemCount(): Int {
-        return when(movies.isEmpty()) {
+        return when (movies.isEmpty()) {
             true -> 1
             else -> movies.size
         }

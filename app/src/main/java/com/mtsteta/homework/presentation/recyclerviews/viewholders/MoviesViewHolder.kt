@@ -8,11 +8,10 @@ import coil.load
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.MovieDto
 
-class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val movieCoverImageView: ImageView =
-        itemView.findViewById(R.id.ivItemMovieCover)
-    private val movieTitleTextView: TextView =
-        itemView.findViewById(R.id.textItemMovieTitle)
+class MoviesViewHolder(itemView: View, onMovieItemClick: (title: String) -> Unit) :
+    RecyclerView.ViewHolder(itemView) {
+    private val movieCoverImageView: ImageView = itemView.findViewById(R.id.ivItemMovieCover)
+    private val movieTitleTextView: TextView = itemView.findViewById(R.id.textItemMovieTitle)
     private val movieDescriptionTextView: TextView =
         itemView.findViewById(R.id.textItemMovieDescription)
     private val star1ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar1)
@@ -22,8 +21,14 @@ class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val star5ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar5)
     private val movieAgeRatingTextView: TextView =
         itemView.findViewById(R.id.textItemMovieAgeRestriction)
+    private lateinit var item: String
+
+    init {
+        itemView.setOnClickListener { onMovieItemClick.invoke(item) }
+    }
 
     fun bind(movie: MovieDto) {
+        item = movie.title
         movieCoverImageView.load(movie.imageUrl)
         movieTitleTextView.text = movie.title
         movieDescriptionTextView.text = movie.description

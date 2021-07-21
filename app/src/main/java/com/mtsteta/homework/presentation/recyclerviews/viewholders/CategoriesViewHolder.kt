@@ -6,11 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.CategoryDto
 
-class CategoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private val movieCategoryTextView: TextView =
-        itemView.findViewById(R.id.textItemMovieCategory)
+class CategoriesViewHolder(itemView: View, onCategoryItemClick: (title: String) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    private val movieCategoryTextView: TextView = itemView.findViewById(R.id.textItemMovieCategory)
 
-    fun bind(category: CategoryDto) {
-        movieCategoryTextView.text = category.name
+    lateinit var item: String
+
+    init {
+        movieCategoryTextView.setOnClickListener { onCategoryItemClick.invoke(item) }
+    }
+
+    fun bind(categoryDto: CategoryDto) {
+        item = categoryDto.name
+        movieCategoryTextView.text = categoryDto.name
     }
 }
