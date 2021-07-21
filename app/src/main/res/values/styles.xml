@@ -5,11 +5,11 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
-    <style name="RoundedImageView.Corner10">
+    <style name="RoundedImageView.SmallCorner">
         <item name="cornerSize">@dimen/artist_image_corner_radius</item>
     </style>
 
-    <style name="RoundedImageView.Corner20">
+    <style name="RoundedImageView.NormalCorner">
         <item name="cornerSize">@dimen/cover_corner_radius</item>
     </style>
 
@@ -78,13 +78,13 @@
     </style>
 
     <style name="BaseRoundedImage">
-        <item name="shapeAppearanceOverlay">@style/RoundedImageView.Corner20</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedImageView.NormalCorner</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:adjustViewBounds">true</item>
     </style>
 
     <style name="BaseRoundedImage.ItemMovieCover">
-        <item name="shapeAppearanceOverlay">@style/RoundedImageView.Corner10</item>
+        <item name="shapeAppearanceOverlay">@style/RoundedImageView.SmallCorner</item>
     </style>
 
     <style name="MovieInfoCard">
