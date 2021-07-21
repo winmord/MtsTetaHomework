@@ -55,5 +55,5 @@ class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Uni
     }
 }
 
-const val TYPE_EMPTY = 0
-const val TYPE_MOVIE = 1
+private const val TYPE_EMPTY = 0
+private const val TYPE_MOVIE = 1
