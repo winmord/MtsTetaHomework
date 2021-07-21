@@ -7,7 +7,7 @@
     android:background="@color/movie_card_background">
 
     <ImageButton
-        android:id="@+id/searchButton"
+        android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/search_button_top_margin"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/popularNowTitle"
+        android:id="@+id/textPopularNow"
         style="@style/BaseText.PopularNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,10 +27,10 @@
         android:layout_marginTop="@dimen/popular_now_top_margin"
         android:text="@string/popular_now"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchButton" />
+        app:layout_constraintTop_toBottomOf="@id/buttonSearch" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoriesRecycleView"
+        android:id="@+id/rvCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/categories_recycler_view_start_margin"
@@ -38,23 +38,23 @@
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/popularNowTitle"
+        app:layout_constraintTop_toBottomOf="@id/textPopularNow"
         tools:listitem="@layout/item_movie_category"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/moviesRecycleView"
+        android:id="@+id/rvMovies"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="@dimen/movies_recycler_view_start_margin"
         android:layout_marginTop="@dimen/movies_recycler_view_top_margin"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/homeButtonImageView"
-        app:layout_constraintTop_toBottomOf="@id/categoriesRecycleView"
+        app:layout_constraintBottom_toTopOf="@id/ivHomeButton"
+        app:layout_constraintTop_toBottomOf="@id/rvCategories"
         tools:listitem="@layout/item_movie"/>
 
     <ImageView
-        android:id="@+id/homeButtonImageView"
+        android:id="@+id/ivHomeButton"
         style="@style/BottomNavigationButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/bottom_navigation_view_height"
@@ -66,7 +66,7 @@
         app:srcCompat="@drawable/ic_home" />
 
     <ImageView
-        android:id="@+id/profileButtonImageView"
+        android:id="@+id/ivProfileButton"
         style="@style/BottomNavigationButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/bottom_navigation_view_height"

@@ -10,18 +10,18 @@ import com.mtsteta.homework.data.dto.MovieDto
 
 class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val movieCoverImageView: ImageView =
-        itemView.findViewById(R.id.itemMovieCoverImageView)
+        itemView.findViewById(R.id.ivItemMovieCover)
     private val movieTitleTextView: TextView =
-        itemView.findViewById(R.id.itemMovieTitleTextView)
+        itemView.findViewById(R.id.textItemMovieTitle)
     private val movieDescriptionTextView: TextView =
-        itemView.findViewById(R.id.itemMovieDescriptionTextView)
-    private val star1ImageView: ImageView = itemView.findViewById(R.id.itemMovieStar1ImageView)
-    private val star2ImageView: ImageView = itemView.findViewById(R.id.itemMovieStar2ImageView)
-    private val star3ImageView: ImageView = itemView.findViewById(R.id.itemMovieStar3ImageView)
-    private val star4ImageView: ImageView = itemView.findViewById(R.id.itemMovieStar4ImageView)
-    private val star5ImageView: ImageView = itemView.findViewById(R.id.itemMovieStar5ImageView)
+        itemView.findViewById(R.id.textItemMovieDescription)
+    private val star1ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar1)
+    private val star2ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar2)
+    private val star3ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar3)
+    private val star4ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar4)
+    private val star5ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar5)
     private val movieAgeRatingTextView: TextView =
-        itemView.findViewById(R.id.itemMovieAgeRestrictionTextView)
+        itemView.findViewById(R.id.textItemMovieAgeRestriction)
 
     fun bind(movie: MovieDto) {
         movieCoverImageView.load(movie.imageUrl)

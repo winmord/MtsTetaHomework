@@ -7,7 +7,7 @@
     android:layout_height="@dimen/item_movie_height">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/itemMovieCoverImageView"
+        android:id="@+id/ivItemMovieCover"
         style="@style/BaseRoundedImage.ItemMovieCover"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_movie_cover_height"
@@ -16,18 +16,18 @@
         tools:srcCompat="@drawable/image_artist_1" />
 
     <TextView
-        android:id="@+id/itemMovieTitleTextView"
+        android:id="@+id/textItemMovieTitle"
         style="@style/BaseText.ItemMovieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/item_movie_title_start_margin"
         android:layout_marginTop="@dimen/item_movie_title_top_margin"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemMovieCoverImageView"
+        app:layout_constraintTop_toBottomOf="@id/ivItemMovieCover"
         tools:text="@string/movie_title" />
 
     <TextView
-        android:id="@+id/itemMovieDescriptionTextView"
+        android:id="@+id/textItemMovieDescription"
         style="@style/BaseText.ItemMovieDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,11 +35,11 @@
         android:layout_marginTop="@dimen/item_movie_description_top_margin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemMovieTitleTextView"
+        app:layout_constraintTop_toBottomOf="@id/textItemMovieTitle"
         tools:text="@string/item_movie_description" />
 
     <ImageView
-        android:id="@+id/itemMovieStar1ImageView"
+        android:id="@+id/ivItemMovieStar1"
         android:layout_width="@dimen/item_movie_star_width"
         android:layout_height="@dimen/item_movie_star_height"
         android:layout_marginStart="@dimen/item_movie_first_star_start_margin"
@@ -50,51 +50,51 @@
         tools:srcCompat="@drawable/ic_star_black" />
 
     <ImageView
-        android:id="@+id/itemMovieStar2ImageView"
+        android:id="@+id/ivItemMovieStar2"
         android:layout_width="@dimen/item_movie_star_width"
         android:layout_height="@dimen/item_movie_star_height"
         android:layout_marginStart="@dimen/item_movie_star_start_margin"
         android:layout_marginBottom="@dimen/item_movie_star_bottom_margin"
         android:contentDescription="@string/star"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/itemMovieStar1ImageView"
+        app:layout_constraintLeft_toRightOf="@id/ivItemMovieStar1"
         tools:srcCompat="@drawable/ic_star_black" />
 
     <ImageView
-        android:id="@+id/itemMovieStar3ImageView"
+        android:id="@+id/ivItemMovieStar3"
         android:layout_width="@dimen/item_movie_star_width"
         android:layout_height="@dimen/item_movie_star_height"
         android:layout_marginStart="@dimen/item_movie_star_start_margin"
         android:layout_marginBottom="@dimen/item_movie_star_bottom_margin"
         android:contentDescription="@string/star"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/itemMovieStar2ImageView"
+        app:layout_constraintLeft_toRightOf="@id/ivItemMovieStar2"
         tools:srcCompat="@drawable/ic_star_black" />
 
     <ImageView
-        android:id="@+id/itemMovieStar4ImageView"
+        android:id="@+id/ivItemMovieStar4"
         android:layout_width="@dimen/item_movie_star_width"
         android:layout_height="@dimen/item_movie_star_height"
         android:layout_marginStart="@dimen/item_movie_star_start_margin"
         android:layout_marginBottom="@dimen/item_movie_star_bottom_margin"
         android:contentDescription="@string/star"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/itemMovieStar3ImageView"
+        app:layout_constraintLeft_toRightOf="@id/ivItemMovieStar3"
         tools:srcCompat="@drawable/ic_star_black" />
 
     <ImageView
-        android:id="@+id/itemMovieStar5ImageView"
+        android:id="@+id/ivItemMovieStar5"
         android:layout_width="@dimen/item_movie_star_width"
         android:layout_height="@dimen/item_movie_star_height"
         android:layout_marginStart="@dimen/item_movie_star_start_margin"
         android:layout_marginBottom="@dimen/item_movie_star_bottom_margin"
         android:contentDescription="@string/star"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/itemMovieStar4ImageView"
+        app:layout_constraintLeft_toRightOf="@id/ivItemMovieStar4"
         tools:srcCompat="@drawable/ic_star_transparent" />
 
     <TextView
-        android:id="@+id/itemMovieAgeRestrictionTextView"
+        android:id="@+id/textItemMovieAgeRestriction"
         style="@style/BaseText.ItemMovieMovieAgeRestriction"
         android:layout_width="@dimen/item_movie_age_restriction_width"
         android:layout_height="@dimen/item_movie_age_restriction_height"

@@ -6,7 +6,7 @@
     android:background="@color/movie_card_background">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/movieCoverImageView"
+        android:id="@+id/ivMovieCover"
         style="@style/BaseRoundedImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/homeButtonImageView"
+        app:layout_constraintBottom_toTopOf="@id/ivHomeButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/movieCategoryTextView"
+                android:id="@+id/textMovieCategory"
                 style="@style/BaseText.MovieCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,18 +46,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/movieDateTextView"
+                android:id="@+id/textMovieDate"
                 style="@style/BaseText.MovieDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/movie_date_start_margin"
                 android:layout_marginTop="@dimen/movie_date_top_margin"
                 android:text="@string/movie_date"
-                app:layout_constraintLeft_toRightOf="@id/movieCategoryTextView"
+                app:layout_constraintLeft_toRightOf="@id/textMovieCategory"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/movieTitleTextView"
+                android:id="@+id/textMovieTitle"
                 style="@style/BaseText.MovieTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,10 +65,10 @@
                 android:layout_marginTop="@dimen/movie_title_top_margin"
                 android:text="@string/movie_title"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieCategoryTextView" />
+                app:layout_constraintTop_toBottomOf="@id/textMovieCategory" />
 
             <TextView
-                android:id="@+id/movieAgeRestrictionTextView"
+                android:id="@+id/textMovieAgeRestriction"
                 style="@style/BaseText.MovieAgeRestriction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,62 +79,62 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/movieStar1ImageView"
+                android:id="@+id/ivMovieStar1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/first_rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 app:srcCompat="@drawable/ic_star_black" />
 
             <ImageView
-                android:id="@+id/movieStar2ImageView"
+                android:id="@+id/ivMovieStar2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
-                app:layout_constraintLeft_toRightOf="@id/movieStar1ImageView"
-                app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
+                app:layout_constraintLeft_toRightOf="@id/ivMovieStar1"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 app:srcCompat="@drawable/ic_star_black" />
 
             <ImageView
-                android:id="@+id/movieStar3ImageView"
+                android:id="@+id/ivMovieStar3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
-                app:layout_constraintLeft_toRightOf="@id/movieStar2ImageView"
-                app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
+                app:layout_constraintLeft_toRightOf="@id/ivMovieStar2"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 app:srcCompat="@drawable/ic_star_black" />
 
             <ImageView
-                android:id="@+id/movieStar4ImageView"
+                android:id="@+id/ivMovieStar4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
-                app:layout_constraintLeft_toRightOf="@id/movieStar3ImageView"
-                app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
+                app:layout_constraintLeft_toRightOf="@id/ivMovieStar3"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 app:srcCompat="@drawable/ic_star_black" />
 
             <ImageView
-                android:id="@+id/movieStar5ImageView"
+                android:id="@+id/ivMovieStar5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/rating_star_start_margin"
                 android:layout_marginTop="@dimen/rating_star_top_margin"
                 android:contentDescription="@string/star"
-                app:layout_constraintLeft_toRightOf="@id/movieStar4ImageView"
-                app:layout_constraintTop_toBottomOf="@id/movieTitleTextView"
+                app:layout_constraintLeft_toRightOf="@id/ivMovieStar4"
+                app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
                 app:srcCompat="@drawable/ic_star_transparent" />
 
             <TextView
-                android:id="@+id/movieDescriptionTextView"
+                android:id="@+id/textMovieDescription"
                 style="@style/BaseText.MovieDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,10 +144,10 @@
                 android:text="@string/movie_description"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieStar1ImageView" />
+                app:layout_constraintTop_toBottomOf="@id/ivMovieStar1" />
 
             <TextView
-                android:id="@+id/artistsTitleTextView"
+                android:id="@+id/textArtistsTitle"
                 style="@style/BaseText.ArtistsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
                 android:layout_marginTop="@dimen/artist_title_top_margin"
                 android:text="@string/artists_title"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movieDescriptionTextView" />
+                app:layout_constraintTop_toBottomOf="@id/textMovieDescription" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -163,14 +163,14 @@
                 android:layout_marginEnd="@dimen/artists_scroll_end_margin"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/artistsTitleTextView">
+                app:layout_constraintTop_toBottomOf="@id/textArtistsTitle">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/firstArtistImageView"
+                        android:id="@+id/ivFirstArtist"
                         style="@style/BaseRoundedImage"
                         android:layout_width="@dimen/artist_image_width"
                         android:layout_height="@dimen/artist_image_height"
@@ -181,29 +181,29 @@
                         app:srcCompat="@drawable/image_artist_1" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/secondArtistImageView"
+                        android:id="@+id/ivSecondArtist"
                         style="@style/BaseRoundedImage"
                         android:layout_width="@dimen/artist_image_width"
                         android:layout_height="@dimen/artist_image_height"
                         android:layout_marginStart="@dimen/artist_image_start_margin"
                         android:layout_marginTop="@dimen/artist_image_top_margin"
-                        app:layout_constraintLeft_toRightOf="@id/firstArtistImageView"
+                        app:layout_constraintLeft_toRightOf="@id/ivFirstArtist"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/image_artist_2" />
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/thirdArtistImageView"
+                        android:id="@+id/ivThirdArtist"
                         style="@style/BaseRoundedImage"
                         android:layout_width="@dimen/artist_image_width"
                         android:layout_height="@dimen/artist_image_height"
                         android:layout_marginStart="@dimen/artist_image_start_margin"
                         android:layout_marginTop="@dimen/artist_image_top_margin"
-                        app:layout_constraintLeft_toRightOf="@id/secondArtistImageView"
+                        app:layout_constraintLeft_toRightOf="@id/ivSecondArtist"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/image_artist_3" />
 
                     <TextView
-                        android:id="@+id/firstArtistNameTextView"
+                        android:id="@+id/textFirstArtistName"
                         style="@style/BaseText.ArtistName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -211,36 +211,36 @@
                         android:layout_marginTop="@dimen/artist_name_top_margin"
                         android:text="@string/artist_1_name"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/firstArtistImageView" />
+                        app:layout_constraintTop_toBottomOf="@id/ivFirstArtist" />
 
                     <TextView
-                        android:id="@+id/secondArtistNameTextView"
+                        android:id="@+id/textSecondArtistName"
                         style="@style/BaseText.ArtistName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/artist_name_start_margin"
                         android:layout_marginTop="@dimen/artist_name_top_margin"
                         android:text="@string/artist_2_name"
-                        app:layout_constraintLeft_toRightOf="@id/firstArtistImageView"
-                        app:layout_constraintTop_toBottomOf="@id/secondArtistImageView" />
+                        app:layout_constraintLeft_toRightOf="@id/ivFirstArtist"
+                        app:layout_constraintTop_toBottomOf="@id/ivSecondArtist" />
 
                     <TextView
-                        android:id="@+id/thirdArtistNameTextView"
+                        android:id="@+id/textThirdArtistName"
                         style="@style/BaseText.ArtistName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/artist_name_start_margin"
                         android:layout_marginTop="@dimen/artist_name_top_margin"
                         android:text="@string/artist_3_name"
-                        app:layout_constraintLeft_toRightOf="@id/secondArtistImageView"
-                        app:layout_constraintTop_toBottomOf="@id/thirdArtistImageView" />
+                        app:layout_constraintLeft_toRightOf="@id/ivSecondArtist"
+                        app:layout_constraintTop_toBottomOf="@id/ivThirdArtist" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </HorizontalScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <ImageView
-        android:id="@+id/homeButtonImageView"
+        android:id="@+id/ivHomeButton"
         style="@style/BottomNavigationButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/bottom_navigation_view_height"
@@ -252,7 +252,7 @@
         app:srcCompat="@drawable/ic_home" />
 
     <ImageView
-        android:id="@+id/profileButtonImageView"
+        android:id="@+id/ivProfileButton"
         style="@style/BottomNavigationButton"
         android:layout_width="0dp"
         android:layout_height="@dimen/bottom_navigation_view_height"

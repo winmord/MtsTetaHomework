@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        categoriesRecyclerView = findViewById(R.id.categoriesRecycleView)
-        moviesRecyclerView = findViewById(R.id.moviesRecycleView)
+        categoriesRecyclerView = findViewById(R.id.rvCategories)
+        moviesRecyclerView = findViewById(R.id.rvMovies)
     }
 
     private fun setupDecorations() {

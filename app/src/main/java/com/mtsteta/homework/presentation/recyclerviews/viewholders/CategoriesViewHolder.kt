@@ -8,7 +8,7 @@ import com.mtsteta.homework.data.dto.CategoryDto
 
 class CategoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val movieCategoryTextView: TextView =
-        itemView.findViewById(R.id.itemMovieCategoryTextView)
+        itemView.findViewById(R.id.textItemMovieCategory)
 
     fun bind(category: CategoryDto) {
         movieCategoryTextView.text = category.name
