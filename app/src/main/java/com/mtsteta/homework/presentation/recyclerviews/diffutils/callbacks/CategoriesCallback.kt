@@ -3,11 +3,8 @@ package com.mtsteta.homework.presentation.recyclerviews.diffutils.callbacks
 import androidx.recyclerview.widget.DiffUtil
 import com.mtsteta.homework.data.dto.CategoryDto
 
-class CategoriesCallback(
-    private val oldList: List<CategoryDto>,
-    private val newList: List<CategoryDto>
-) :
-    DiffUtil.Callback() {
+class CategoriesCallback(private val oldList: List<CategoryDto>,
+                         private val newList: List<CategoryDto>) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 
     override fun getNewListSize(): Int = newList.size
