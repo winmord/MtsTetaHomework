@@ -96,4 +96,9 @@
         <item name="android:background">@color/bottom_navigation_view</item>
         <item name="android:scaleType">center</item>
     </style>
+
+    <style name="BaseRecyclerView">
+        <item name="android:paddingStart">@dimen/categories_recycler_view_start_margin</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>

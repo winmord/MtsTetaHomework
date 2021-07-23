@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/movie_card_background">
 
     <ImageButton
@@ -31,15 +31,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
+        style="@style/BaseRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/categories_recycler_view_start_margin"
         android:layout_marginTop="@dimen/categories_recycler_view_top_margin"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textPopularNow"
-        tools:listitem="@layout/item_movie_category"/>
+        tools:listitem="@layout/item_movie_category" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovies"
@@ -51,7 +51,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/ivHomeButton"
         app:layout_constraintTop_toBottomOf="@id/rvCategories"
-        tools:listitem="@layout/item_movie"/>
+        tools:listitem="@layout/item_movie" />
 
     <ImageView
         android:id="@+id/ivHomeButton"
