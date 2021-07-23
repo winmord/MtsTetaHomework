@@ -21,14 +21,14 @@ class MoviesViewHolder(itemView: View, onMovieItemClick: (title: String) -> Unit
     private val star5ImageView: ImageView = itemView.findViewById(R.id.ivItemMovieStar5)
     private val movieAgeRatingTextView: TextView =
         itemView.findViewById(R.id.textItemMovieAgeRestriction)
-    private lateinit var item: String
+    private lateinit var item: MovieDto
 
     init {
-        itemView.setOnClickListener { onMovieItemClick.invoke(item) }
+        itemView.setOnClickListener { onMovieItemClick.invoke(item.title) }
     }
 
     fun bind(movie: MovieDto) {
-        item = movie.title
+        item = movie
         movieCoverImageView.load(movie.imageUrl)
         movieTitleTextView.text = movie.title
         movieDescriptionTextView.text = movie.description

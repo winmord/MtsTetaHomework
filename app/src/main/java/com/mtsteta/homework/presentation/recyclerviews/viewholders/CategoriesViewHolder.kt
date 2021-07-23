@@ -9,14 +9,14 @@ import com.mtsteta.homework.data.dto.CategoryDto
 class CategoriesViewHolder(itemView: View, onCategoryItemClick: (title: String) -> Unit) : RecyclerView.ViewHolder(itemView) {
     private val movieCategoryTextView: TextView = itemView.findViewById(R.id.textItemMovieCategory)
 
-    lateinit var item: String
+    lateinit var item: CategoryDto
 
     init {
-        movieCategoryTextView.setOnClickListener { onCategoryItemClick.invoke(item) }
+        movieCategoryTextView.setOnClickListener { onCategoryItemClick.invoke(item.name) }
     }
 
     fun bind(categoryDto: CategoryDto) {
-        item = categoryDto.name
+        item = categoryDto
         movieCategoryTextView.text = categoryDto.name
     }
 }
