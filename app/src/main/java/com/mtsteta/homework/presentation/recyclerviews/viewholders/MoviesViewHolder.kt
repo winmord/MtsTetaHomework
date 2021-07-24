@@ -8,7 +8,7 @@ import coil.load
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.MovieDto
 
-class MoviesViewHolder(itemView: View, onMovieItemClick: (title: String) -> Unit) :
+class MoviesViewHolder(itemView: View, onMovieItemClick: (movieDto: MovieDto) -> Unit) :
     RecyclerView.ViewHolder(itemView) {
     private val movieCoverImageView: ImageView = itemView.findViewById(R.id.ivItemMovieCover)
     private val movieTitleTextView: TextView = itemView.findViewById(R.id.textItemMovieTitle)
@@ -24,7 +24,7 @@ class MoviesViewHolder(itemView: View, onMovieItemClick: (title: String) -> Unit
     private lateinit var item: MovieDto
 
     init {
-        itemView.setOnClickListener { onMovieItemClick.invoke(item.title) }
+        itemView.setOnClickListener { onMovieItemClick.invoke(item) }
     }
 
     fun bind(movie: MovieDto) {

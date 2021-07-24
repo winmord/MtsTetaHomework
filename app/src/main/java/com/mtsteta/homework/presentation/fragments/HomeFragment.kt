@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -87,7 +89,13 @@ class HomeFragment : Fragment() {
     private fun setupAdapters() {
         categoriesAdapter = CategoriesRecyclerAdapter(activityCallbackFunction)
         categoriesRecyclerView?.adapter = categoriesAdapter
-        moviesAdapter = MoviesRecyclerAdapter(activityCallbackFunction)
+
+        val moviesCallbackFunction: (MovieDto) -> Unit = {
+            val bundle = bundleOf("movieDto" to it)
+            view?.findNavController()?.navigate(R.id.movieDetailsFragment, bundle)
+        }
+
+        moviesAdapter = MoviesRecyclerAdapter(moviesCallbackFunction)
         moviesRecyclerView?.adapter = moviesAdapter
     }
 
