@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_details)
+        setContentView(R.layout.activity_main)
 
-        initDataSource()
+        /*initDataSource()
         setupViews()
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
-        updateData()
+        updateData()*/
     }
 
     private fun initDataSource() {

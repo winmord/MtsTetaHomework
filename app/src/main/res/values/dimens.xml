@@ -1,4 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="design_bottom_navigation_item_max_width" tools:override="true">600dp</dimen>
+    <dimen name="design_bottom_navigation_active_item_max_width" tools:override="true">600dp</dimen>
+
     <dimen name="activity_movie_details_start_margin">16dp</dimen>
 
     <dimen name="movie_title_text_size">20sp</dimen>
