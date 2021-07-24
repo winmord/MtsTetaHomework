@@ -34,7 +34,7 @@
     <dimen name="artist_name_start_margin">12sp</dimen>
 
     <dimen name="movie_info_card_top_margin">224dp</dimen>
-    <dimen name="movie_info_card_bottom_padding">46dp</dimen>
+    <dimen name="movie_info_card_bottom_padding">100dp</dimen>
     <dimen name="movie_info_card_corner_radius">20dp</dimen>
 
     <dimen name="artists_scroll_end_margin">10dp</dimen>
@@ -99,4 +99,51 @@
     <dimen name="item_movie_category_end_padding">9dp</dimen>
     <dimen name="item_movie_category_top_padding">4dp</dimen>
     <dimen name="item_movie_category_bottom_padding">3dp</dimen>
+
+    <dimen name="profile_user_name_text_size">20sp</dimen>
+    <dimen name="profile_user_name_top_margin">64dp</dimen>
+    <dimen name="profile_user_name_start_margin">20dp</dimen>
+
+    <dimen name="profile_mail_text_size">14sp</dimen>
+    <dimen name="profile_mail_top_margin">2dp</dimen>
+    <dimen name="profile_mail_start_margin">20dp</dimen>
+
+    <dimen name="profile_image_end_margin">20dp</dimen>
+    <dimen name="profile_image_top_margin">48dp</dimen>
+
+    <dimen name="profile_title_text_size">16sp</dimen>
+    <dimen name="profile_settings_text_size">14sp</dimen>
+
+    <dimen name="profile_interests_title_top_margin">57dp</dimen>
+    <dimen name="profile_interests_title_start_margin">20dp</dimen>
+
+    <dimen name="profile_interests_top_margin">14dp</dimen>
+    <dimen name="profile_interests_start_margin">20dp</dimen>
+
+    <dimen name="profile_personal_data_title_top_margin">43dp</dimen>
+    <dimen name="profile_personal_data_title_start_margin">20dp</dimen>
+
+    <dimen name="profile_user_name_hint_top_margin">15dp</dimen>
+    <dimen name="profile_user_name_hint_start_margin">20dp</dimen>
+
+    <dimen name="profile_input_text_size">14sp</dimen>
+    <dimen name="profile_input_top_margin">6dp</dimen>
+    <dimen name="profile_input_start_margin">20dp</dimen>
+    <dimen name="profile_input_end_margin">20dp</dimen>
+
+    <dimen name="profile_settings_title_top_margin">40dp</dimen>
+    <dimen name="profile_settings_title_start_margin">20dp</dimen>
+
+    <dimen name="profile_settings_first_top_margin">10dp</dimen>
+    <dimen name="profile_settings_top_margin">20dp</dimen>
+    <dimen name="profile_settings_start_margin">20dp</dimen>
+    <dimen name="profile_settings_end_margin">20dp</dimen>
+
+    <dimen name="profile_settings_app_top_margin">40dp</dimen>
+    <dimen name="profile_settings_app_start_margin">20dp</dimen>
+
+    <dimen name="profile_quit_button_height">48dp</dimen>
+    <dimen name="profile_quit_button_top_margin">40dp</dimen>
+    <dimen name="profile_quit_button_start_margin">20dp</dimen>
+    <dimen name="profile_quit_button_end_margin">20dp</dimen>
 </resources>
