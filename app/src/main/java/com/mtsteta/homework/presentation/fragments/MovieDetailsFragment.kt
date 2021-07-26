@@ -22,7 +22,7 @@ class MovieDetailsFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
 
-        movieDto = arguments?.getParcelable("movieDto")
+        movieDto = arguments?.getParcelable(movie_dto_bundle_key)
         setupViews(view, movieDto)
 
         return view
@@ -45,15 +45,5 @@ class MovieDetailsFragment : Fragment() {
             .setImageResource(if (rateScore > 3) R.drawable.ic_star_black else R.drawable.ic_star_transparent)
         view.findViewById<ImageView>(R.id.ivMovieStar5)
             .setImageResource(if (rateScore > 4) R.drawable.ic_star_black else R.drawable.ic_star_transparent)
-    }
-
-    companion object {
-        fun newInstance(movieDto: MovieDto): MovieDetailsFragment {
-            val args = Bundle()
-            args.putParcelable("movieDto", movieDto)
-            val fragment = MovieDetailsFragment()
-            fragment.arguments = args
-            return fragment
-        }
     }
 }
