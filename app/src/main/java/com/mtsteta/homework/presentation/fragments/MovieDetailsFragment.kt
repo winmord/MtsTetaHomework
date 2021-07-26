@@ -28,15 +28,18 @@ class MovieDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_movie_details, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadData(view)
+    }
+
+    private fun loadData(view: View) {
+        initViews(view)
 
         movieDto = arguments?.getParcelable(movie_dto_bundle_key)
-
-        initViews(view)
         setupViews(movieDto)
-
-        return view
     }
 
     private fun initViews(view: View) {
