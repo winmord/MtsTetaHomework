@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import coil.load
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.MovieDto
@@ -38,7 +37,7 @@ class MovieDetailsFragment : Fragment() {
     private fun loadData(view: View) {
         initViews(view)
 
-        movieDto = arguments?.getParcelable(movie_dto_bundle_key)
+        movieDto = arguments?.getParcelable(MOVIE_DTO_BUNDLE_KEY)
         setupViews(movieDto)
     }
 

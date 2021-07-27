@@ -94,7 +94,7 @@ class HomeFragment : Fragment() {
         categoriesRecyclerView?.adapter = categoriesAdapter
 
         val moviesCallbackFunction: (MovieDto) -> Unit = {
-            val bundle = bundleOf(movie_dto_bundle_key to it)
+            val bundle = bundleOf(MOVIE_DTO_BUNDLE_KEY to it)
             view?.findNavController()?.navigate(R.id.movieDetailsFragment, bundle)
         }
 
@@ -130,4 +130,4 @@ class HomeFragment : Fragment() {
     }
 }
 
-const val movie_dto_bundle_key = "movieDto"
+const val MOVIE_DTO_BUNDLE_KEY = "movieDto"
