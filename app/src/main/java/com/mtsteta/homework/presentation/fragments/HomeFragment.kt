@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.CategoryDto
 import com.mtsteta.homework.data.dto.MovieDto
@@ -25,12 +26,17 @@ import com.mtsteta.homework.presentation.recyclerviews.decorations.BottomSpaceIt
 import com.mtsteta.homework.presentation.recyclerviews.decorations.RightSpaceItemDecoration
 import com.mtsteta.homework.presentation.recyclerviews.diffutils.callbacks.CategoriesCallback
 import com.mtsteta.homework.presentation.recyclerviews.diffutils.callbacks.MoviesCallback
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
     private lateinit var moviesModel: MoviesModel
     private lateinit var categoriesModel: CategoriesModel
     private var categoriesRecyclerView: RecyclerView? = null
     private var moviesRecyclerView: RecyclerView? = null
+    private var homeSwipeRefreshLayout: SwipeRefreshLayout? = null
     private lateinit var categoriesAdapter: CategoriesRecyclerAdapter
     private lateinit var moviesAdapter: MoviesRecyclerAdapter
     private var categories = listOf<CategoryDto>()
@@ -51,6 +57,7 @@ class HomeFragment : Fragment() {
     private fun loadData(view: View) {
         initDataSource()
         setupViews(view)
+        setupListeners()
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
@@ -65,6 +72,13 @@ class HomeFragment : Fragment() {
     private fun setupViews(view: View?) {
         categoriesRecyclerView = view?.findViewById(R.id.rvCategories)
         moviesRecyclerView = view?.findViewById(R.id.rvMovies)
+        homeSwipeRefreshLayout = view?.findViewById(R.id.srlHomeFragment)
+    }
+
+    private fun setupListeners() {
+        homeSwipeRefreshLayout?.setOnRefreshListener {
+            updateData()
+        }
     }
 
     private fun setupDecorations() {
@@ -91,6 +105,7 @@ class HomeFragment : Fragment() {
 
     private fun setupAdapters() {
         categoriesAdapter = CategoriesRecyclerAdapter(activityCallbackFunction)
+        categoriesAdapter.categories = categories
         categoriesRecyclerView?.adapter = categoriesAdapter
 
         val moviesCallbackFunction: (MovieDto) -> Unit = {
@@ -99,21 +114,24 @@ class HomeFragment : Fragment() {
         }
 
         moviesAdapter = MoviesRecyclerAdapter(moviesCallbackFunction)
+        moviesAdapter.movies = movies
         moviesRecyclerView?.adapter = moviesAdapter
     }
 
     private fun updateData() {
-        val categoriesCallback = CategoriesCallback(categories, categoriesModel.getCategories())
-        val categoriesDiff = DiffUtil.calculateDiff(categoriesCallback)
-        categories = categoriesModel.getCategories()
-        categoriesAdapter.categories = categories
-        categoriesDiff.dispatchUpdatesTo(categoriesAdapter)
+        CoroutineScope(Dispatchers.Main).launch {
+            categoriesAdapter.categories = withContext(Dispatchers.IO) {
+                categoriesModel.getCategories()
+            }
+            moviesAdapter.movies = withContext(Dispatchers.IO) {
+                moviesModel.getMovies()
+            }
 
-        val moviesCallback = MoviesCallback(movies, moviesModel.getMovies())
-        val moviesDiff = DiffUtil.calculateDiff(moviesCallback)
-        movies = moviesModel.getMovies()
-        moviesAdapter.movies = movies
-        moviesDiff.dispatchUpdatesTo(moviesAdapter)
+            homeSwipeRefreshLayout?.isRefreshing = false
+
+            categoriesAdapter.notifyDataSetChanged()
+            moviesAdapter.notifyDataSetChanged()
+        }
     }
 
     private fun getGridColumnsCount(itemWidth: Int): Int {
