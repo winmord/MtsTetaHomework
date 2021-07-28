@@ -12,8 +12,8 @@
     <string name="artist_2_name">Холт Маккэллани</string>
     <string name="artist_3_name">Джош Харнетт</string>
     <string name="age_rating">18+</string>
-    <string name="home">home</string>
-    <string name="profile">profile</string>
+    <string name="menu_title_home">home</string>
+    <string name="menu_title_profile">profile</string>
     <string name="active_indicator">active indicator</string>
     <string name="profile_button">profile_button</string>
     <string name="home_button">home_button</string>
@@ -21,6 +21,24 @@
     <string name="popular_now">Популярное сейчас</string>
     <string name="main_empty_message">empty</string>
     <string name="age_restriction">%1$s+</string>
-    <string name="empty_movies_list">Сейчас здесь нет
-фильмов, но мы уже отправили режиссёра снимать фильм для вас</string>
+    <string name="empty_movies_list">Сейчас здесь нет фильмов, но мы уже отправили режиссёра снимать фильм для вас</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_user_name">Константин</string>
+    <string name="profile_mail">konst.89@mail.com</string>
+    <string name="profile_image">profile image</string>
+    <string name="profile_interests_title">Интересы</string>
+    <string name="profile_personal_data_title">Личные данные</string>
+    <string name="profile_user_name_hint">Имя</string>
+    <string name="profile_password">*************</string>
+    <string name="profile_phone_hint">Телефон</string>
+    <string name="profile_settings_title">Настройки</string>
+    <string name="profile_notifications">Уведомления и звуки</string>
+    <string name="profile_settings_confidence">Конфедициальность</string>
+    <string name="profile_settings_theme">Тема</string>
+    <string name="profile_settings_language">Язык</string>
+    <string name="profile_settings_memory">Данные и память</string>
+    <string name="profile_title_application">Приложение</string>
+    <string name="profile_app_question">Задать вопрос</string>
+    <string name="profile_app_problems">Сообщить о проблеме</string>
+    <string name="profile_quit">Выйти</string>
 </resources>

@@ -8,7 +8,7 @@ import com.mtsteta.homework.data.dto.MovieDto
 import com.mtsteta.homework.presentation.recyclerviews.viewholders.EmptyMoviesListViewHolder
 import com.mtsteta.homework.presentation.recyclerviews.viewholders.MoviesViewHolder
 
-class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Unit) :
+class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     lateinit var movies: List<MovieDto>
@@ -31,7 +31,6 @@ class MoviesRecyclerAdapter(private val callbackFunction: (title: String) -> Uni
         when (holder) {
             is MoviesViewHolder -> {
                 holder.bind(movies[position])
-                holder.itemView.setOnClickListener { callbackFunction(movies[position].title) }
             }
             is EmptyMoviesListViewHolder -> {
                 holder.bind()

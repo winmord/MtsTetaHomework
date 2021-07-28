@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="movie_card_background">#F1F1F1</color>
     <color name="bottom_navigation_view">@color/white</color>
+    <color name="hint_text_color">#4D000000</color>
 </resources>

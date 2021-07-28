@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movies_app_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.mtsteta.homework.presentation.fragments.HomeFragment"
+        android:label="@string/menu_title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.mtsteta.homework.presentation.fragments.ProfileFragment"
+        android:label="@string/menu_title_profile"
+        tools:layout="@layout/fragment_profile"/>
+
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.mtsteta.homework.presentation.fragments.MovieDetailsFragment"
+        android:label="MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details">
+
+
+        <argument
+            android:name="movieDto"
+            app:argType="com.mtsteta.homework.data.dto.MovieDto" />
+    </fragment>
+</navigation>
