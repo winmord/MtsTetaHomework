@@ -124,12 +124,10 @@ class HomeFragment : Fragment() {
                 movies = moviesModel.getMovies()
             }
 
-            withContext(Dispatchers.Main) {
-                updateCategories(categories)
-                updateMovies(movies)
+            updateCategories(categories)
+            updateMovies(movies)
 
-                homeSwipeRefreshLayout?.isRefreshing = false
-            }
+            homeSwipeRefreshLayout?.isRefreshing = false
         }
     }
 
