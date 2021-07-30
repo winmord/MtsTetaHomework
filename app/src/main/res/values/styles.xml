@@ -112,6 +112,7 @@
     <style name="BaseConstraintLayout">
         <item name="android:background">@drawable/shape_movie_info_card_background</item>
         <item name="android:paddingBottom">@dimen/movie_info_card_bottom_padding</item>
+        <item name="android:clipToPadding">false</item>
     </style>
 
     <style name="BottomNavigationButton">
@@ -120,7 +121,15 @@
     </style>
 
     <style name="BaseRecyclerView">
-        <item name="android:paddingStart">@dimen/categories_recycler_view_start_margin</item>
         <item name="android:clipToPadding">false</item>
     </style>
+
+    <style name="BaseRecyclerView.Categories">
+        <item name="android:paddingStart">@dimen/categories_recycler_view_start_margin</item>
+    </style>
+
+    <style name="BaseRecyclerView.Movies">
+        <item name="android:paddingBottom">@dimen/movie_info_card_bottom_padding</item>
+    </style>
+
 </resources>
