@@ -64,7 +64,6 @@ class MoviesDataSourceImpl : MoviesDataSource {
         )
 
         movies.shuffle()
-        Thread.sleep(2000)
 
         return movies
     }

@@ -119,6 +119,7 @@ class HomeFragment : Fragment() {
     private fun updateData() {
         CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
             withContext(Dispatchers.IO) {
+                Thread.sleep(2000)
                 categories = categoriesModel.getCategories()
                 movies = moviesModel.getMovies()
             }
