@@ -37,6 +37,10 @@ class HomeFragment : Fragment() {
     private var categories = listOf<CategoryDto>()
     private var movies = listOf<MovieDto>()
     private val activityCallbackFunction: (String) -> Unit = { showToast(it) }
+    private val moviesCallbackFunction: (MovieDto) -> Unit = {
+        val bundle = bundleOf(MOVIE_DTO_BUNDLE_KEY to it)
+        view?.findNavController()?.navigate(R.id.movieDetailsFragment, bundle)
+    }
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
         Log.d("coroutineException", "handled $exception")
     }
@@ -59,6 +63,7 @@ class HomeFragment : Fragment() {
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
+        setupInitAdaptersData()
         updateData()
     }
 
@@ -103,17 +108,15 @@ class HomeFragment : Fragment() {
 
     private fun setupAdapters() {
         categoriesAdapter = CategoriesRecyclerAdapter(activityCallbackFunction)
-        categoriesAdapter.categories = categories
         categoriesRecyclerView?.adapter = categoriesAdapter
 
-        val moviesCallbackFunction: (MovieDto) -> Unit = {
-            val bundle = bundleOf(MOVIE_DTO_BUNDLE_KEY to it)
-            view?.findNavController()?.navigate(R.id.movieDetailsFragment, bundle)
-        }
-
         moviesAdapter = MoviesRecyclerAdapter(moviesCallbackFunction)
-        moviesAdapter.movies = movies
         moviesRecyclerView?.adapter = moviesAdapter
+    }
+
+    private fun setupInitAdaptersData() {
+        categoriesAdapter.categories = categories
+        moviesAdapter.movies = movies
     }
 
     private fun updateData() {
