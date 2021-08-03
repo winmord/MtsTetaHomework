@@ -32,8 +32,11 @@ class HomeFragment : Fragment() {
     private var categoriesRecyclerView: RecyclerView? = null
     private var moviesRecyclerView: RecyclerView? = null
     private var homeSwipeRefreshLayout: SwipeRefreshLayout? = null
+    private lateinit var categoriesLayoutManager: LinearLayoutManager
+    private lateinit var moviesLayoutManager: GridLayoutManager
     private lateinit var categoriesAdapter: CategoriesRecyclerAdapter
     private lateinit var moviesAdapter: MoviesRecyclerAdapter
+    private var moviesSpanCount: Int = 1
     private var categories = listOf<CategoryDto>()
     private var movies = listOf<MovieDto>()
     private val activityCallbackFunction: (String) -> Unit = { showToast(it) }
@@ -62,6 +65,7 @@ class HomeFragment : Fragment() {
         setupListeners()
         setupDecorations()
         setupLayoutManagers()
+        updateLayoutManagers()
         setupAdapters()
         setupAdaptersData()
         updateData()
@@ -95,15 +99,26 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupLayoutManagers() {
-        categoriesRecyclerView?.layoutManager =
+        categoriesLayoutManager =
             LinearLayoutManager(view?.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesLayoutManager = GridLayoutManager(view?.context, moviesSpanCount)
+    }
 
+    private fun updateLayoutManagers() {
+        updateMoviesSpan()
+        categoriesRecyclerView?.layoutManager = categoriesLayoutManager
+        moviesRecyclerView?.layoutManager = moviesLayoutManager
+    }
+
+    private fun updateMoviesSpan() {
         val itemWidth = resources.getDimension(R.dimen.item_movie_width).toInt()
         val itemMargin = resources.getDimension(R.dimen.item_movie_end_margin).toInt()
         val moviesRecyclerViewItemWidth = itemWidth + itemMargin
-        val moviesRecyclerViewColumnsCount: Int = getGridColumnsCount(moviesRecyclerViewItemWidth)
-        moviesRecyclerView?.layoutManager =
-            GridLayoutManager(view?.context, moviesRecyclerViewColumnsCount)
+        moviesSpanCount = if (movies.isEmpty()) moviesSpanCount else getGridColumnsCount(
+            moviesRecyclerViewItemWidth
+        )
+
+        moviesLayoutManager.spanCount = moviesSpanCount
     }
 
     private fun setupAdapters() {
@@ -137,6 +152,7 @@ class HomeFragment : Fragment() {
                 movies = moviesModel.getMovies()
             }
 
+            updateLayoutManagers()
             updateMovies(movies)
 
             homeSwipeRefreshLayout?.isRefreshing = false
