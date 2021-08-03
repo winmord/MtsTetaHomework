@@ -75,12 +75,12 @@ class HomeFragment : Fragment() {
     private fun setupViews(view: View?) {
         categoriesRecyclerView = view?.findViewById(R.id.rvCategories)
         moviesRecyclerView = view?.findViewById(R.id.rvMovies)
-        homeSwipeRefreshLayout = view?.findViewById(R.id.srlHomeFragment)
+        homeSwipeRefreshLayout = view?.findViewById(R.id.srlMoviesList)
     }
 
     private fun setupListeners() {
         homeSwipeRefreshLayout?.setOnRefreshListener {
-            updateData()
+            updateMoviesData()
         }
     }
 
@@ -119,19 +119,33 @@ class HomeFragment : Fragment() {
         moviesAdapter.movies = movies
     }
 
-    private fun updateData() {
+    private fun updateCategoriesData() {
         CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
             withContext(Dispatchers.IO) {
                 Thread.sleep(2000)
                 categories = categoriesModel.getCategories()
-                movies = moviesModel.getMovies()
             }
 
             updateCategories(categories)
+        }
+    }
+
+    private fun updateMoviesData() {
+        CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
+            withContext(Dispatchers.IO) {
+                Thread.sleep(2000)
+                movies = moviesModel.getMovies()
+            }
+
             updateMovies(movies)
 
             homeSwipeRefreshLayout?.isRefreshing = false
         }
+    }
+
+    private fun updateData() {
+        updateCategoriesData()
+        updateMoviesData()
     }
 
     private fun updateCategories(categories: List<CategoryDto>) {
