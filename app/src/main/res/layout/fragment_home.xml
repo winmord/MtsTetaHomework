@@ -13,7 +13,7 @@
         android:background="@color/movie_card_background">
 
         <ImageButton
-            android:id="@+id/buttonSearch"
+            android:id="@+id/btSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/search_button_top_margin"
@@ -33,7 +33,7 @@
             android:layout_marginTop="@dimen/popular_now_top_margin"
             android:text="@string/popular_now"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonSearch" />
+            app:layout_constraintTop_toBottomOf="@id/btSearch" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategories"

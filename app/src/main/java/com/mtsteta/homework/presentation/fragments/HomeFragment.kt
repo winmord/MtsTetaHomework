@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
-        setupInitAdaptersData()
+        setupAdaptersData()
         updateData()
     }
 
@@ -114,7 +114,7 @@ class HomeFragment : Fragment() {
         moviesRecyclerView?.adapter = moviesAdapter
     }
 
-    private fun setupInitAdaptersData() {
+    private fun setupAdaptersData() {
         categoriesAdapter.categories = categories
         moviesAdapter.movies = movies
     }
