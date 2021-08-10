@@ -3,6 +3,7 @@ package com.mtsteta.homework.presentation.recyclerviews.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mtsteta.homework.R
 import com.mtsteta.homework.data.dto.MovieDto
 import com.mtsteta.homework.presentation.recyclerviews.viewholders.EmptyMoviesListViewHolder
@@ -28,6 +29,10 @@ class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val lp = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
+        lp.isFullSpan = position == itemCount - 1 && (position + 1) % 2 == 1
+        holder.itemView.layoutParams = lp
+
         when (holder) {
             is MoviesViewHolder -> {
                 holder.bind(movies[position])
@@ -36,7 +41,6 @@ class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -
                 holder.bind()
             }
         }
-
     }
 
     override fun getItemViewType(position: Int): Int {
