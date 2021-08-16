@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,27 +26,24 @@ import com.mtsteta.homework.view.recyclerviews.adapters.CategoriesRecyclerAdapte
 import com.mtsteta.homework.view.recyclerviews.adapters.MoviesRecyclerAdapter
 import com.mtsteta.homework.view.recyclerviews.decorations.BottomSpaceItemDecoration
 import com.mtsteta.homework.view.recyclerviews.decorations.RightSpaceItemDecoration
+import com.mtsteta.homework.viewmodel.HomeViewModel
 import kotlinx.coroutines.*
 
 class HomeFragment : Fragment() {
-    private lateinit var moviesModel: MoviesModel
-    private lateinit var categoriesModel: CategoriesModel
+    private val homeViewModel: HomeViewModel by viewModels()
+
     private var categoriesRecyclerView: RecyclerView? = null
     private var moviesRecyclerView: RecyclerView? = null
+
     private var homeSwipeRefreshLayout: SwipeRefreshLayout? = null
-    private lateinit var categoriesLayoutManager: LinearLayoutManager
-    private lateinit var moviesLayoutManager: StaggeredGridLayoutManager
+
     private lateinit var categoriesAdapter: CategoriesRecyclerAdapter
     private lateinit var moviesAdapter: MoviesRecyclerAdapter
-    private var categories = listOf<CategoryDto>()
-    private var movies = listOf<MovieDto>()
+
     private val activityCallbackFunction: (String) -> Unit = { showToast(it) }
     private val moviesCallbackFunction: (MovieDto) -> Unit = {
         val bundle = bundleOf(MOVIE_DTO_BUNDLE_KEY to it)
         view?.findNavController()?.navigate(R.id.movieDetailsFragment, bundle)
-    }
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
-        Log.d("coroutineException", "handled $exception")
     }
 
     override fun onCreateView(
@@ -59,20 +58,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadData(view: View) {
-        initDataSource()
         setupViews(view)
         setupListeners()
         setupDecorations()
         setupLayoutManagers()
-        updateLayoutManagers()
         setupAdapters()
-        setupAdaptersData()
-        updateData()
-    }
-
-    private fun initDataSource() {
-        moviesModel = MoviesModel(MoviesDataSourceImpl())
-        categoriesModel = CategoriesModel(CategoriesDataSourceImpl())
+        setupObservers()
     }
 
     private fun setupViews(view: View?) {
@@ -83,7 +74,7 @@ class HomeFragment : Fragment() {
 
     private fun setupListeners() {
         homeSwipeRefreshLayout?.setOnRefreshListener {
-            updateMoviesData()
+            updateData()
         }
     }
 
@@ -98,7 +89,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupLayoutManagers() {
-        categoriesLayoutManager =
+        categoriesRecyclerView?.layoutManager =
             LinearLayoutManager(view?.context, LinearLayoutManager.HORIZONTAL, false)
 
         val itemWidth = resources.getDimension(R.dimen.item_movie_width).toInt()
@@ -106,13 +97,8 @@ class HomeFragment : Fragment() {
         val moviesRecyclerViewItemWidth = itemWidth + itemMargin
         val moviesSpanCount = getGridColumnsCount(moviesRecyclerViewItemWidth)
 
-        moviesLayoutManager =
+        moviesRecyclerView?.layoutManager =
             StaggeredGridLayoutManager(moviesSpanCount, StaggeredGridLayoutManager.VERTICAL)
-    }
-
-    private fun updateLayoutManagers() {
-        categoriesRecyclerView?.layoutManager = categoriesLayoutManager
-        moviesRecyclerView?.layoutManager = moviesLayoutManager
     }
 
     private fun setupAdapters() {
@@ -123,48 +109,26 @@ class HomeFragment : Fragment() {
         moviesRecyclerView?.adapter = moviesAdapter
     }
 
-    private fun setupAdaptersData() {
-        categoriesAdapter.categories = categories
-        moviesAdapter.movies = movies
-    }
-
-    private fun updateCategoriesData() {
-        CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
-            withContext(Dispatchers.IO) {
-                categories = categoriesModel.getCategories()
-            }
-
-            updateCategories(categories)
-        }
-    }
-
-    private fun updateMoviesData() {
-        CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
-            withContext(Dispatchers.IO) {
-                Thread.sleep(2000)
-                movies = moviesModel.getMovies()
-            }
-
-            updateLayoutManagers()
-            updateMovies(movies)
-
-            homeSwipeRefreshLayout?.isRefreshing = false
-        }
+    private fun setupObservers() {
+        homeViewModel.categoriesDataList.observe(
+            viewLifecycleOwner,
+            Observer(categoriesAdapter::initData)
+        )
+        homeViewModel.moviesDataList.observe(viewLifecycleOwner, Observer(moviesAdapter::initData))
+        homeViewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
+        homeViewModel.loadData()
     }
 
     private fun updateData() {
-        updateCategoriesData()
-        updateMoviesData()
+        homeViewModel.loadData()
     }
 
-    private fun updateCategories(categories: List<CategoryDto>) {
-        categoriesAdapter.categories = categories
-        categoriesAdapter.notifyDataSetChanged()
-    }
+    data class ViewState(
+        val isRefreshing: Boolean = true
+    )
 
-    private fun updateMovies(movies: List<MovieDto>) {
-        moviesAdapter.movies = movies
-        moviesAdapter.notifyDataSetChanged()
+    private fun render(viewState: ViewState) = with(viewState) {
+        homeSwipeRefreshLayout?.isRefreshing = isRefreshing
     }
 
     private fun getGridColumnsCount(itemWidth: Int): Int {

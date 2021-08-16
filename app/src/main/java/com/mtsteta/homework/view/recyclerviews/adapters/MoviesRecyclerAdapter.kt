@@ -12,7 +12,7 @@ import com.mtsteta.homework.view.recyclerviews.viewholders.MoviesViewHolder
 class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    lateinit var movies: List<MovieDto>
+    var data: MutableList<MovieDto> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -35,7 +35,7 @@ class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -
 
         when (holder) {
             is MoviesViewHolder -> {
-                holder.bind(movies[position])
+                holder.bind(data[position])
             }
             is EmptyMoviesListViewHolder -> {
                 holder.bind()
@@ -44,16 +44,24 @@ class MoviesRecyclerAdapter(private val callbackFunction: (movieDto: MovieDto) -
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (movies.isEmpty()) {
+        return when (data.isEmpty()) {
             true -> TYPE_EMPTY
             else -> TYPE_MOVIE
         }
     }
 
     override fun getItemCount(): Int {
-        return when (movies.isEmpty()) {
+        return when (data.isEmpty()) {
             true -> 1
-            else -> movies.size
+            else -> data.size
+        }
+    }
+
+    fun initData(movies: List<MovieDto>?) {
+        if (movies != null) {
+            data.clear()
+            data.addAll(movies)
+            notifyDataSetChanged()
         }
     }
 }

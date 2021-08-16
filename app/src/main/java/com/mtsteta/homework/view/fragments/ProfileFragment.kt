@@ -67,9 +67,9 @@ class ProfileFragment : Fragment() {
     private fun updateData(newPreferences: List<CategoryDto>) {
         val preferencesCallback = CategoriesCallback(preferences, newPreferences)
         val preferencesDiff = DiffUtil.calculateDiff(preferencesCallback)
-        preferences = newPreferences
-        preferencesAdapter.categories = preferences
-        preferencesDiff.dispatchUpdatesTo(preferencesAdapter)
-        preferencesAdapter.categories = preferences
+        //preferences = newPreferences
+        //preferencesAdapter.data = preferences
+        //preferencesDiff.dispatchUpdatesTo(preferencesAdapter)
+        //preferencesAdapter.data = preferences
     }
 }

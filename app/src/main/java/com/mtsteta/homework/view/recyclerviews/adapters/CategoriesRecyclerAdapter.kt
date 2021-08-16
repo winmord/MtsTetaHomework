@@ -9,7 +9,7 @@ import com.mtsteta.homework.view.recyclerviews.viewholders.CategoriesViewHolder
 
 class CategoriesRecyclerAdapter(private val callbackFunction: (title: String) -> Unit) :
     RecyclerView.Adapter<CategoriesViewHolder>() {
-    lateinit var categories: List<CategoryDto>
+    var data: MutableList<CategoryDto> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val itemView =
@@ -19,10 +19,18 @@ class CategoriesRecyclerAdapter(private val callbackFunction: (title: String) ->
     }
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
-        holder.bind(categories[position])
+        holder.bind(data[position])
     }
 
     override fun getItemCount(): Int {
-        return categories.size
+        return data.size
+    }
+
+    fun initData(categories: List<CategoryDto>?) {
+        if (categories != null) {
+            data.clear()
+            data.addAll(categories)
+            notifyDataSetChanged()
+        }
     }
 }
