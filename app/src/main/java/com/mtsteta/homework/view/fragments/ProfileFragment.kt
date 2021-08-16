@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,11 +15,12 @@ import com.mtsteta.homework.model.dto.CategoryDto
 import com.mtsteta.homework.view.recyclerviews.adapters.CategoriesRecyclerAdapter
 import com.mtsteta.homework.view.recyclerviews.decorations.RightSpaceItemDecoration
 import com.mtsteta.homework.view.recyclerviews.diffutils.callbacks.CategoriesCallback
+import com.mtsteta.homework.viewmodel.ProfileViewModel
 
 class ProfileFragment : Fragment() {
+    private val profileViewModel: ProfileViewModel by viewModels()
     private var preferencesRecyclerView: RecyclerView? = null
     private lateinit var preferencesAdapter: CategoriesRecyclerAdapter
-    private var preferences = listOf<CategoryDto>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,16 +34,11 @@ class ProfileFragment : Fragment() {
     }
 
     private fun loadData(view: View) {
-        initDataSource()
         setupViews(view)
         setupDecorations()
         setupLayoutManagers()
         setupAdapters()
-        updateData(listOf())
-    }
-
-    private fun initDataSource() {
-        preferences = listOf(CategoryDto("боевики"), CategoryDto("драмы"), CategoryDto("комедии"))
+        setupObservers()
     }
 
     private fun setupViews(view: View?) {
@@ -64,12 +62,11 @@ class ProfileFragment : Fragment() {
         preferencesRecyclerView?.adapter = preferencesAdapter
     }
 
-    private fun updateData(newPreferences: List<CategoryDto>) {
-        val preferencesCallback = CategoriesCallback(preferences, newPreferences)
-        val preferencesDiff = DiffUtil.calculateDiff(preferencesCallback)
-        //preferences = newPreferences
-        //preferencesAdapter.data = preferences
-        //preferencesDiff.dispatchUpdatesTo(preferencesAdapter)
-        //preferencesAdapter.data = preferences
+    private fun setupObservers() {
+        profileViewModel.preferencesDataList.observe(
+            viewLifecycleOwner,
+            Observer(preferencesAdapter::initData)
+        )
+        profileViewModel.loadData()
     }
 }
