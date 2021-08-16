@@ -1,7 +1,6 @@
 package com.mtsteta.homework.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,18 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mtsteta.homework.R
-import com.mtsteta.homework.model.dto.CategoryDto
 import com.mtsteta.homework.model.dto.MovieDto
-import com.mtsteta.homework.model.features.categories.CategoriesDataSourceImpl
-import com.mtsteta.homework.model.features.movies.MoviesDataSourceImpl
-import com.mtsteta.homework.model.models.CategoriesModel
-import com.mtsteta.homework.model.models.MoviesModel
 import com.mtsteta.homework.view.recyclerviews.adapters.CategoriesRecyclerAdapter
 import com.mtsteta.homework.view.recyclerviews.adapters.MoviesRecyclerAdapter
 import com.mtsteta.homework.view.recyclerviews.decorations.BottomSpaceItemDecoration
 import com.mtsteta.homework.view.recyclerviews.decorations.RightSpaceItemDecoration
 import com.mtsteta.homework.viewmodel.HomeViewModel
-import kotlinx.coroutines.*
 
 class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModels()
