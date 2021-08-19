@@ -34,19 +34,26 @@ class HomeViewModel : ViewModel() {
 
     private fun loadCategoriesData() {
         CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
+            var categories: List<CategoryDto>
             withContext(Dispatchers.IO) {
-                _categoriesDataList.postValue(categoriesModel.getCategories())
+                categories = categoriesModel.getCategories()
             }
+
+            _categoriesDataList.postValue(categories)
         }
     }
 
     private fun loadMoviesData() {
         CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
+            var movies: List<MovieDto>
+
             withContext(Dispatchers.IO) {
                 Thread.sleep(2000)
-                _moviesDataList.postValue(moviesModel.getMovies())
-                _viewState.postValue(HomeViewState(isRefreshing = false))
+                movies = moviesModel.getMovies()
             }
+
+            _moviesDataList.postValue(movies)
+            _viewState.postValue(HomeViewState(isRefreshing = false))
         }
     }
 
