@@ -21,9 +21,12 @@ class ProfileViewModel : ViewModel() {
 
     private fun loadPreferencesData() {
         CoroutineScope(Dispatchers.Main).launch(coroutineExceptionHandler) {
+            var preferences: List<CategoryDto>
             withContext(Dispatchers.IO) {
-                _preferencesDataList.postValue(preferencesModel.getPreferences())
+                preferences = preferencesModel.getPreferences()
             }
+
+            _preferencesDataList.postValue(preferences)
         }
     }
 
