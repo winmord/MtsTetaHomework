@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.mtsteta.homework.presentation.fragments.HomeFragment"
+        android:name="com.mtsteta.homework.view.fragments.HomeFragment"
         android:label="@string/menu_title_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,19 +17,17 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.mtsteta.homework.presentation.fragments.ProfileFragment"
+        android:name="com.mtsteta.homework.view.fragments.ProfileFragment"
         android:label="@string/menu_title_profile"
         tools:layout="@layout/fragment_profile"/>
 
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="com.mtsteta.homework.presentation.fragments.MovieDetailsFragment"
+        android:name="com.mtsteta.homework.view.fragments.MovieDetailsFragment"
         android:label="MovieDetailsFragment"
         tools:layout="@layout/fragment_movie_details">
-
-
         <argument
             android:name="movieDto"
-            app:argType="com.mtsteta.homework.data.dto.MovieDto" />
+            app:argType="com.mtsteta.homework.model.dto.MovieDto" />
     </fragment>
 </navigation>
